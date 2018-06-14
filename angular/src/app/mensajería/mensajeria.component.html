@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-buscar (iniciarConversacion)="iniciarConversacion($event)"></app-buscar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <app-conversaciones (conversacionSeleccionada)="abrirMensajes($event)" [conversacion]="nuevaConversacion"></app-conversaciones>
+        </div>
+        <div class="col-9">
+            <app-mensajes [conversacion]="conversacionSeleccionada"></app-mensajes>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label for="typeahead-http">Buscar usuarios:</label>
+    <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" placeholder="Buscar usuarios" />
+    <button (click)="buscarUsuarios()">Buscar</button>
+    <div class="invalid-feedback" *ngIf="searchFailed">Lo siento, no pudimos cargar los resultados.</div>
+</div>
+<hr> resultados:
+<pre *ngFor="let res of resultados"> 
+    {{ res.name | json }}
+    <button (click)="nuevaConversacion(res)">Iniciar conversacion</button>
+</pre>

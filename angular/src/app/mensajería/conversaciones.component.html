@@ -1,0 +1,6 @@
+conversaciones:
+<div *ngFor="let conversacion of conversaciones" (click)="abrirConversacion(conversacion)">
+    <pre>
+        {{conversacion.targetUserName}}<br> {{conversacion.updated | date}}
+    </pre>
+</div>

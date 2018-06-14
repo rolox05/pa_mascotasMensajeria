@@ -1,0 +1,8 @@
+Mensajes:
+<div *ngFor="let mensaje of mensajes">
+    <pre>{{mensaje.fromUserName}}: <!--to {{mensaje.target}}--><br>{{mensaje.mensaje}} <br> {{mensaje.created | date:'short'}}</pre>
+</div>
+<div *ngIf="mensajes?.length == 0">Aún no hay mensajes</div>
+<br>
+<input type="text" [(ngModel)]="nuevoMensaje" *ngIf="conversacion">
+<button (click)="enviarMensaje()" *ngIf="conversacion">Enviar</button>
