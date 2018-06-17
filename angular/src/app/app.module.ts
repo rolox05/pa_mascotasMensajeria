@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { APP_BASE_HREF } from "@angular/common";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { routing } from "./app.routes";
 import { AppComponent } from "./app.component";
@@ -53,7 +53,7 @@ import { MensajeService } from "./mensajer\u00EDa/mensaje.service";
     HttpModule,
     NgDatepickerModule,
     routing,
-    NgbModule.forRoot()
+  //  NgbModule.forRoot()
   ],
   providers: [
     MascotaService,

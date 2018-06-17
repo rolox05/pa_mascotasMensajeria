@@ -21,6 +21,6 @@ export function init(app: Express) {
     app.route("/mensaje/:targetUser/:originUser")
          .get(passport.authenticate("jwt", { session: false }), mensajeria.findMensajesBySelectedUser, mensajeria.findMensajesWithSelectedUser)
          .post(passport.authenticate("jwt", { session: false }), mensajeria.createMessageToTargetUser);
-    app.route("/mensaje/:targetUser")
-     .delete(passport.authenticate("jwt", { session: false }), user.search);
+    app.route("/mensaje/:messageId")
+       .delete(passport.authenticate("jwt", { session: false }), mensajeria.borrarMensaje);
 }

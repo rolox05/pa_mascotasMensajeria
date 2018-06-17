@@ -1,6 +1,13 @@
 Mensajes:
-<div *ngFor="let mensaje of mensajes">
-    <pre>{{mensaje.fromUserName}}: <!--to {{mensaje.target}}--><br>{{mensaje.mensaje}} <br> {{mensaje.created | date:'short'}}</pre>
+<div *ngFor="let mensaje of mensajes" [ngStyle]="{'background-color': usuarioLogueado?.name == mensaje.fromUserName ? '#DCF8C6' : '#FFFFFF'}">
+    <span>
+        {{mensaje.fromUserName}}: <!--to {{mensaje.target}}--><br>
+        {{mensaje.mensaje}} <br>
+        {{mensaje.created | date:'short'}}
+        <button type="button" class="close pull-right" aria-label="Close" (click)="deleteMessage(mensaje)" *ngIf="usuarioLogueado?.name == mensaje.fromUserName">
+            <span aria-hidden="true">&times;</span>
+    </button>
+    </span>
 </div>
 <div *ngIf="mensajes?.length == 0">Aún no hay mensajes</div>
 <br>

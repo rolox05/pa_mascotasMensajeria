@@ -6,6 +6,7 @@ export interface IConversacion extends mongoose.Document {
   user: mongoose.Schema.Types.ObjectId;
   target: mongoose.Schema.Types.ObjectId;
   targetUserName: string;
+  userName: string;
   updated: Date;
   created: Date;
   enabled: Boolean;
@@ -26,6 +27,10 @@ export let ConversacionSchema = new mongoose.Schema({
     required: "Usuario es requerido"
   },
   targetUserName: {
+    type: String,
+    default: ""
+  },
+  userName: {
     type: String,
     default: ""
   },

@@ -3,6 +3,7 @@ import { Http, Headers, Response } from "@angular/http";
 import { RestBaseService } from "../tools/rest.tools";
 import "rxjs/add/operator/toPromise";
 import { Usuario } from "../usuario/usuario.service";
+import { ConversationDTO } from "./mensajeria.component";
 
 @Injectable()
 export class ConversacionService extends RestBaseService {
@@ -22,10 +23,10 @@ export class ConversacionService extends RestBaseService {
       .catch(this.handleError);
   }
 
-  iniciarConversacion(target: Usuario): Promise<Conversacion> {
+  iniciarConversacion(dto: ConversationDTO): Promise<Conversacion> {
       return this.http
         .post(ConversacionService.serverUrl + this.url,
-        JSON.stringify(target),
+        JSON.stringify(dto),
         this.getRestHeader())
         .toPromise()
         .then(response => {

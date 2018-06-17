@@ -35,6 +35,16 @@ export function findConversacionesIniciadasWithCurrentUser(req: IUserConversacio
       enabled: true
     }).exec(function (err, conversaciones) {
       if (err) return next();
+      conversaciones.forEach(conver => {
+        const originalTargetName = conver.targetUserName;
+        const originalTarget = conver.target;
+        const originalFromName = conver.userName;
+        const originalFrom = conver.user;
+        conver.target = originalFrom;
+        conver.targetUserName = originalFromName;
+        conver.user = originalTarget;
+        conver.userName = originalTargetName;
+      });
       res.json(conversaciones.concat(req.conversaciones));
     });
 }
@@ -52,9 +62,10 @@ export function findConversacionesIniciadasWithCurrentUser(req: IUserConversacio
   export function crearConversacion(req: IUserConversacionRequest, res: express.Response, next: NextFunction) {
         if (!req.conversacion) {
             const conversacion = new Conversacion();
-            conversacion.user = req.user._id;
-            conversacion.target = req.body._id;
-            conversacion.targetUserName = req.body.name;
+            conversacion.userName = req.body.from.name;
+            conversacion.user = req.body.from.id;
+            conversacion.target = req.body.to._id;
+            conversacion.targetUserName = req.body.to.name;
 
             conversacion.save(function (err: any) {
                 if (err) return errorHandler.handleError(res, err);
@@ -72,6 +83,14 @@ export function findConversacionesIniciadasWithCurrentUser(req: IUserConversacio
       if (err) return next();
       req.mensajes = mensajes;
       next();
+    });
+  }
+
+  export function borrarMensaje(req: IUserMensajeRequest, res: express.Response, next: NextFunction) {
+    Mensaje.deleteOne({
+      _id: req.params.messageId
+    }).exec(function (err) {
+      res.send("Document deleted");
     });
   }
 

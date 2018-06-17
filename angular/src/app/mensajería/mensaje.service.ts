@@ -33,9 +33,21 @@ export class MensajeService extends RestBaseService {
         })
         .catch(this.handleError);
   }
+
+  deleteMessage(mensaje: Mensaje) {
+    return this.http
+        .delete(MensajeService.serverUrl + this.url + "/" + mensaje._id,
+        this.getRestHeader())
+        .toPromise()
+        .then(response => {
+            return response;
+        })
+        .catch(this.handleError);
+  }
 }
 
 export interface Mensaje {
+    _id: String;
     user: String;
     target: String;
     fromUserName: String;
