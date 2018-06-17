@@ -1,6 +1,6 @@
 Mensajes:
 <div class="container chat-container">
-    <div *ngFor="let mensaje of mensajes" [ngStyle]="{'background-color': usuarioLogueado?.name == mensaje.fromUserName ? '#DCF8C6' : '#FFFFFF'}" class="well-sm mensaje">
+    <div *ngFor="let mensaje of mensajes" [ngStyle]="{'background-color': usuarioLogueado?.name == mensaje.fromUserName ? '#DCF8C6' : '#FFFFFF'}" class="well well-sm mensaje">
         <span>
         <h6>{{mensaje.fromUserName}}:</h6> <!--to {{mensaje.target}}--> 
         {{mensaje.mensaje}} <br>

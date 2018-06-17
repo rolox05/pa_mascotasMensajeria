@@ -1,6 +1,7 @@
 conversaciones:
 <div *ngFor="let conversacion of conversaciones" (click)="abrirConversacion(conversacion)">
-    <pre>
-        {{conversacion.targetUserName}}<br> {{conversacion.updated | date}}
-    </pre>
+    <div class="well well-sm">
+        <h6>{{conversacion.targetUserName}}</h6>
+        <span class="text-muted">{{conversacion.updated | date}}</span>
+    </div>
 </div>
