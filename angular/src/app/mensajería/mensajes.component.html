@@ -1,10 +1,10 @@
 Mensajes:
 <div class="container chat-container">
-    <div *ngFor="let mensaje of mensajes" [ngStyle]="{'background-color': usuarioLogueado?.name == mensaje.fromUserName ? '#DCF8C6' : '#FFFFFF'}">
+    <div *ngFor="let mensaje of mensajes" [ngStyle]="{'background-color': usuarioLogueado?.name == mensaje.fromUserName ? '#DCF8C6' : '#FFFFFF'}" class="well-sm mensaje">
         <span>
-        {{mensaje.fromUserName}}: <!--to {{mensaje.target}}--><br>
+        <h6>{{mensaje.fromUserName}}:</h6> <!--to {{mensaje.target}}--> 
         {{mensaje.mensaje}} <br>
-        {{mensaje.created | date:'short'}}
+        <span class="text-muted">{{mensaje.created | date:'short'}}</span>
         <button type="button" class="close pull-right" aria-label="Close" (click)="deleteMessage(mensaje)" *ngIf="usuarioLogueado?.name == mensaje.fromUserName">
             <span aria-hidden="true">&times;</span>
         </button>

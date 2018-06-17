@@ -10,7 +10,9 @@ import { MensajeService, Mensaje } from "./mensaje.service";
 export class MensajeriaComponent implements OnInit {
   private conversacionSeleccionada: Conversacion;
   private nuevaConversacion: Conversacion;
+  private usuarioLogueado: Usuario;
   constructor(private conversacionService: ConversacionService, private mensajeService: MensajeService, private usuarioService: UsuarioService) {
+    this.usuarioLogueado = this.usuarioService.usuarioLogueado;
   }
 
   abrirMensajes(conversacion: Conversacion) {
