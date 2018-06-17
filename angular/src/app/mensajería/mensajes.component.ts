@@ -5,7 +5,8 @@ import { UsuarioService, Usuario } from "../usuario/usuario.service";
 
 @Component({
   selector: "app-mensajes",
-  templateUrl: "./mensajes.component.html"
+  templateUrl: "./mensajes.component.html",
+  styleUrls: ["./mensajes.scss"]
 })
 export class MensajesComponent implements OnInit {
   private mensajes: Mensaje[];

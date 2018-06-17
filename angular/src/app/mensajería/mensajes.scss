@@ -1,0 +1,10 @@
+.chat-container {
+    min-height: 67vh;
+    max-height: 67vh;
+    overflow: auto;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
