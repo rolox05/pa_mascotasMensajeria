@@ -3,6 +3,7 @@ import { Http, Headers, Response, URLSearchParams } from "@angular/http";
 import { RestBaseService } from "../tools/rest.tools";
 import "rxjs/add/operator/toPromise";
 import { Observable } from "rxjs/Observable";
+import { CanActivate } from "@angular/router";
 
 @Injectable()
 export class UsuarioService extends RestBaseService {
@@ -12,7 +13,7 @@ export class UsuarioService extends RestBaseService {
   private registrarUrl = "/auth/signup";
   private buscarUsuarioUrl = "/buscarUsuario";
 
-  public usuarioLogueado;
+  public usuarioLogueado: Usuario;
 
   constructor(private http: Http) {
     super();

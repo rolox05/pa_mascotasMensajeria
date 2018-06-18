@@ -23,12 +23,13 @@ import { FileUploadComponent } from "./tools/image.base64";
 
 // Dependencias
 // Dependencias de mensajería
-import { BuscarComponent } from "./mensajer\u00EDa/buscar.component";
-import { ConversacionesComponent } from "./mensajer\u00EDa/conversaciones.component";
-import { MensajeriaComponent } from "./mensajer\u00EDa/mensajeria.component";
-import { MensajesComponent } from "./mensajer\u00EDa/mensajes.component";
-import { ConversacionService } from "./mensajer\u00EDa/conversaciones.service";
-import { MensajeService } from "./mensajer\u00EDa/mensaje.service";
+import { BuscarComponent } from "./mensajeria/buscar.component";
+import { ConversacionesComponent } from "./mensajeria/conversaciones.component";
+import { MensajeriaComponent } from "./mensajeria/mensajeria.component";
+import { MensajesComponent } from "./mensajeria/mensajes.component";
+import { ConversacionService } from "./mensajeria/conversaciones.service";
+import { MensajeService } from "./mensajeria/mensaje.service";
+import { UserAuthGuard } from "./mensajeria/mensajeria.guard";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,8 @@ import { MensajeService } from "./mensajer\u00EDa/mensaje.service";
     // conversacion
     ConversacionService,
     MensajeService,
+    // guarda de mensajería
+    UserAuthGuard,
     /* Los providers son @Inyectable, la siguiente es una forma de definit un
      provider con un valor constante para poder inyectarlo*/
     { provide: APP_BASE_HREF, useValue: environment.baseHref }
