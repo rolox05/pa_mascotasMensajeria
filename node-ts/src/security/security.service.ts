@@ -344,3 +344,24 @@ export function validateAdminRole(req: IUserSessionRequest, res: express.Respons
       next();
     });
 }
+
+export function validateUserRole(req: IUserSessionRequest, res: express.Response, next: NextFunction) {
+  User.findOne(
+    {
+      _id: req.user.id,
+      enabled: true
+    },
+    function (err: any, user: IUser) {
+      if (err) return errorHandler.handleError(res, err);
+
+      if (!user) {
+        return errorHandler.sendError(res, errorHandler.ERROR_NOT_FOUND, "El usuario no se encuentra.");
+      }
+
+      if (!(user.roles.indexOf("user") >= 0)) {
+        return errorHandler.sendError(res, errorHandler.ERROR_UNATORIZED, "No autorizado.");
+      }
+
+      next();
+    });
+}

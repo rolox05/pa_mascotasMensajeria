@@ -19,7 +19,7 @@ export interface IUserConversacionRequest extends express.Request {
     conversacion: IConversacion;
     conversaciones: IConversacion[];
 }
-export function findConversacionesIniciadasByCurrentUser(req: IUserConversacionRequest, res: express.Response, next: NextFunction) {
+export function findChatByCurrentUser(req: IUserConversacionRequest, res: express.Response, next: NextFunction) {
     Conversacion.find({
       user: req.user._id,
       enabled: true
@@ -29,7 +29,7 @@ export function findConversacionesIniciadasByCurrentUser(req: IUserConversacionR
       next();
     });
 }
-export function findConversacionesIniciadasWithCurrentUser(req: IUserConversacionRequest, res: express.Response, next: NextFunction) {
+export function findChatWithCurrentUser(req: IUserConversacionRequest, res: express.Response, next: NextFunction) {
     Conversacion.find({
       target: req.user._id,
       enabled: true
