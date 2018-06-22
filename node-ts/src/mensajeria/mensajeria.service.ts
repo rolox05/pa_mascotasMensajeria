@@ -165,6 +165,7 @@ export function findChatWithCurrentUser(req: IUserConversacionRequest, res: expr
  * @apiDescription Elimina el mensaje si este pertenece al usuario logueado.
  *
  * @apiSuccessExample {json} String
+ * {}
  */
   export function borrarMensaje(req: IUserMensajeRequest, res: express.Response, next: NextFunction) {
     Mensaje.deleteOne({

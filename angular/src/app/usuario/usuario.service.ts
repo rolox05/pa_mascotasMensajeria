@@ -109,5 +109,6 @@ export interface Usuario {
   email: string;
   enabled: boolean;
   roles: string[];
+  rol: string[];
   _id: string;
 }
